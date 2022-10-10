@@ -433,22 +433,40 @@
     const storyPanels = document.getElementsByClassName("story-panel");
     const storiesLeftArrow = storyPanels[storyPanels.length-1].nextElementSibling;
     const storiesRightArrow = storiesLeftArrow.nextElementSibling;
+    let hiddenArrows = [];
     let currentPanel = 0;
     storiesRightArrow.addEventListener("click", translatePanel);
     storiesLeftArrow.addEventListener("click", translatePanel);
+    window.addEventListener("resize", checkRightArrow);
+
+    function checkRightArrow() {
+      if (window.innerWidth < 615) {
+        if (storiesRightArrow.style.display === "block") {
+          storiesRightArrow.style.display = "none";
+          hiddenArrows.push(storiesRightArrow);
+        }
+
+        if (storiesLeftArrow.style.display === "block") {
+          storiesLeftArrow.style.display = "none";
+          hiddenArrows.push(storiesLeftArrow);
+        }
+      } else {
+        for (let i = 0; i < hiddenArrows.length; i++)
+          hiddenArrows[i].style.display = "block";
+        hiddenArrows = [];
+      }
+    }
 
     function translatePanel(e) {
       if (e.target.nextElementSibling === null) {
         if (currentPanel === 0) {
           storiesLeftArrow.style.display = "block";
-          storiesLeftArrow.style.boxShadow = "0px 3px 10px rgba(190, 190, 190, 1)";
         }
         storyPanels[currentPanel++].style.display = "none";
         storyPanels[currentPanel].style.display = "flex";
       } else {
         if (currentPanel === storyPanels.length-1) {
           storiesRightArrow.style.display = "block";
-          storiesRightArrow.style.boxShadow = "0px 3px 10px rgba(190, 190, 190, 1)";
         }
         storyPanels[currentPanel--].style.display = "none";
         storyPanels[currentPanel].style.display = "flex";
@@ -457,10 +475,8 @@
 
       if (currentPanel === 0) {
         storiesLeftArrow.style.display = "none";
-        storiesLeftArrow.style.boxShadow = "none";
       } else if (currentPanel === storyPanels.length-1) {
         storiesRightArrow.style.display = "none";
-        storiesRightArrow.style.boxShadow = "none";
       }
     }
   </script>

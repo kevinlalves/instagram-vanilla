@@ -120,6 +120,7 @@ body {
   color: white;
   position: absolute;
   border-radius: 100%;
+  box-shadow: 0px 3px 10px rgba(190, 190, 190, 1);
 }
 
 .arrow:hover {
@@ -133,7 +134,6 @@ body {
 
 .right-arrow {
   right: 5px;
-  box-shadow: 0px 3px 10px rgba(190, 190, 190, 1);
 }
 .right-arrow:hover {
   cursor: pointer;
