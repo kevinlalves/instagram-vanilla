@@ -1,0 +1,17 @@
+{
+  "name": "projeto2-instagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "Kevin de Lima Alves",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
