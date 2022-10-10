@@ -64,6 +64,11 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+.story-panel {
+  display: flex;
+  align-items: center;
+}
+
 .story {
   display: flex;
   flex-direction: column;
